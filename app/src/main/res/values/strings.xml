@@ -8,4 +8,9 @@
     <string name="Mesec_input">MM</string>
     <string name="Leto_input">LLLL</string>
     <string name="Datum_input">Datum</string>
+    <string name="EUR" formatted="true">%s €</string>
+    <string name="Puscica">-></string>
+    <string name="NiZadetkov">Ni zadetkov</string>
+    <string name="Nalagam">Nalagam</string>
+    <string name="Cakaj">Nalagam, počakajte trenutek</string>
 </resources>
