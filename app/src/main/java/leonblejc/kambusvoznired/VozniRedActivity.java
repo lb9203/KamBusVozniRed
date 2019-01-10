@@ -20,7 +20,7 @@ public class VozniRedActivity extends AppCompatActivity {
         TextView VstopnaPostaja = findViewById(R.id.VstopnaPostajaVR);
         TextView IzstopnaPostaja = findViewById(R.id.IzstopnaPostajaVR);
         TextView Datum = findViewById(R.id.DatumVR);
-
+        //Nastavi vrednosti polj
         VstopnaPostaja.setText(VstopnaPostajaString);
         IzstopnaPostaja.setText(IzstopnaPostajaString);
         Datum.setText(DatumString);
