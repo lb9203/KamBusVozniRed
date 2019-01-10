@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KamBus Vozni Red</string>
+    <string name="VstopnaPostaja_input">Vstopna Postaja</string>
+    <string name="IzstopnaPostaja_input">Izstopna Postaja</string>
+    <string name="Poizvedba_button">Prikaži Vozni Red</string>
+    <string name="Zamenjaj_button">Zamenjaj postaji</string>
+    <string name="Dan_input">Dan</string>
+    <string name="Mesec_input">Mesec</string>
+    <string name="Leto_input">Leto</string>
+</resources>
