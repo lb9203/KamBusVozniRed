@@ -4,7 +4,8 @@
     <string name="IzstopnaPostaja_input">Izstopna Postaja</string>
     <string name="Poizvedba_button">Prikaži Vozni Red</string>
     <string name="Zamenjaj_button">Zamenjaj postaji</string>
-    <string name="Dan_input">Dan</string>
-    <string name="Mesec_input">Mesec</string>
-    <string name="Leto_input">Leto</string>
+    <string name="Dan_input">DD</string>
+    <string name="Mesec_input">MM</string>
+    <string name="Leto_input">LLLL</string>
+    <string name="Datum_input">Datum</string>
 </resources>
