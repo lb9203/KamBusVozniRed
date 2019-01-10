@@ -1,5 +1,7 @@
 package leonblejc.kambusvoznired;
 
+//Class for storing information of a single bus
+
 public class Bus {
     private String odhod, prihod, ime, cena;
 
@@ -10,15 +12,15 @@ public class Bus {
         this.prihod = prihod;
     }
 
-    public String getCena() {
+    String getCena() {
         return cena;
     }
 
-    public String getOdhod() {
+    String getOdhod() {
         return odhod;
     }
 
-    public String getPrihod() {
+    String getPrihod() {
         return prihod;
     }
 

@@ -2,15 +2,367 @@
     <string name="app_name">KamBus Vozni Red</string>
     <string name="VstopnaPostaja_input">Vstopna Postaja</string>
     <string name="IzstopnaPostaja_input">Izstopna Postaja</string>
-    <string name="Poizvedba_button">Prikaži Vozni Red</string>
-    <string name="Zamenjaj_button">Zamenjaj postaji</string>
+    <string name="Poizvedba_button">Pošlji</string>
+    <string name="Zamenjaj_button">Zamenjaj</string>
     <string name="Dan_input">DD</string>
     <string name="Mesec_input">MM</string>
     <string name="Leto_input">LLLL</string>
     <string name="Datum_input">Datum</string>
     <string name="EUR" formatted="true">%s €</string>
-    <string name="Puscica">-></string>
+    <string name="Puscica">--></string>
     <string name="NiZadetkov">Ni zadetkov</string>
     <string name="Nalagam">Nalagam</string>
     <string name="Cakaj">Nalagam, počakajte trenutek</string>
+    <string-array name="postajeArray">
+        <item>Baderna</item>
+        <item>Bakovnik Lidl</item>
+        <item>Bakovnik Pošta</item>
+        <item>Bašanija</item>
+        <item>Bašarinka</item>
+        <item>Bela/Motniku</item>
+        <item>Bela/Špitaliču</item>
+        <item>Bistrica/Vranskem</item>
+        <item>Bišče rondo</item>
+        <item>Bišče vas</item>
+        <item>Blagovica</item>
+        <item>BLAGOVICA PARK</item>
+        <item>Bled</item>
+        <item>Bled Union</item>
+        <item>Bočna</item>
+        <item>Brezje</item>
+        <item>Brezje pri Dobu</item>
+        <item>Buč</item>
+        <item>Buč Hruševka</item>
+        <item>Češenik</item>
+        <item>Češenik vas</item>
+        <item>Češnjice</item>
+        <item>Črna pri Kamniku N.Jašek</item>
+        <item>Črna pri Kamniku Petek</item>
+        <item>Črna pri Kamniku rudnik</item>
+        <item>Črnevšek</item>
+        <item>Črnivec nad Kamnikom</item>
+        <item>Dajla</item>
+        <item>Delce</item>
+        <item>Depala vas</item>
+        <item>Dob OŠ</item>
+        <item>Dob vas</item>
+        <item>Dob/Domžalah</item>
+        <item>Dob2/Domžalah</item>
+        <item>Dobrava</item>
+        <item>Dobrava/Moravčah</item>
+        <item>Dol pri Ljubljani</item>
+        <item>Dol/G.Gradu</item>
+        <item>Dol/G.Gradu Rogačnik</item>
+        <item>Dolenje/Radomljah</item>
+        <item>Domžale</item>
+        <item>Domžale K</item>
+        <item>Domžale Lidl</item>
+        <item>Domžale Petrol</item>
+        <item>Domžale stad.</item>
+        <item>Domžale Univ.</item>
+        <item>Dragomelj</item>
+        <item>Drtija K</item>
+        <item>Duplica</item>
+        <item>Duplica Qlandia</item>
+        <item>Duplica Stol N O</item>
+        <item>G.Grad</item>
+        <item>G.Grad sp.trg</item>
+        <item>Garaža</item>
+        <item>Garaža Perovo</item>
+        <item>Godič</item>
+        <item>Golice</item>
+        <item>Gora pri Pečah</item>
+        <item>Gorica/Moravčah</item>
+        <item>Gozd</item>
+        <item>Gozd1</item>
+        <item>Grušovlje/Ljubnem</item>
+        <item>Homec</item>
+        <item>Hudo Polje</item>
+        <item>Hudo vas</item>
+        <item>Igla</item>
+        <item>Ihan Emona</item>
+        <item>Ihan farma</item>
+        <item>Ihan Flerin</item>
+        <item>Ihan Termit</item>
+        <item>Ince Mengeš</item>
+        <item>Izola</item>
+        <item>Jarše</item>
+        <item>Jarše Bunkež</item>
+        <item>Jarše I.C. Sam</item>
+        <item>Jarše OŠ</item>
+        <item>Jastroblje</item>
+        <item>Kamnik</item>
+        <item>Kamnik KIK</item>
+        <item>Kamnik Mercator</item>
+        <item>Kamnik Metalka</item>
+        <item>Kamnik Perovo</item>
+        <item>Kamnik Svetilnik</item>
+        <item>Kamnik ŠCRM</item>
+        <item>Kamnik ŽP</item>
+        <item>Kamnik ŽTP</item>
+        <item>Kamniška Bistrica</item>
+        <item>Karigador</item>
+        <item>Kavran</item>
+        <item>Klemenčevo</item>
+        <item>Kokarje</item>
+        <item>Količevo</item>
+        <item>Količevo Helios</item>
+        <item>Količevo samopost.</item>
+        <item>Komenda Š</item>
+        <item>Komenda vas</item>
+        <item>Kompolje/Lukovici</item>
+        <item>Konjski vrh</item>
+        <item>Koper</item>
+        <item>Kopišča</item>
+        <item>Krašce/Moravčah</item>
+        <item>Krašnja</item>
+        <item>Križ/G.Gradu</item>
+        <item>Križ/Kamniku</item>
+        <item>Kropa/G.Gradu</item>
+        <item>Krtina</item>
+        <item>Krtina Mostnar</item>
+        <item>Krtina vas</item>
+        <item>Krtina/Dobu</item>
+        <item>Krunčiči</item>
+        <item>Kureš</item>
+        <item>Lačja vas</item>
+        <item>Lahovče</item>
+        <item>Laniše</item>
+        <item>Laniše</item>
+        <item>Laze</item>
+        <item>Laze v Tuhinju</item>
+        <item>Letališče Brnik</item>
+        <item>Ljubljana</item>
+        <item>Ljubljana AMZS</item>
+        <item>Ljubljana Belinka</item>
+        <item>Ljubljana Beričevo</item>
+        <item>Ljubljana Brinje</item>
+        <item>Ljubljana BTC</item>
+        <item>Ljubljana Črnuče</item>
+        <item>Ljubljana Hrastje</item>
+        <item>Ljubljana Kino Šiška</item>
+        <item>Ljubljana Kodrova</item>
+        <item>Ljubljana Nadgorica</item>
+        <item>Ljubljana Nove Jarše</item>
+        <item>Ljubljana Podgorica</item>
+        <item>Ljubljana Ruski car</item>
+        <item>Ljubljana Sav.nas.</item>
+        <item>Ljubljana Slov.avto</item>
+        <item>Ljubljana Sneberje</item>
+        <item>Ljubljana stad.</item>
+        <item>Ljubljana Šentjakob</item>
+        <item>Ljubljana Šentvid</item>
+        <item>Ljubljana Tivoli</item>
+        <item>Ljubljana Trata</item>
+        <item>Ljubljana Viadukt</item>
+        <item>Ljubno/Savinji</item>
+        <item>Ljubno/Savinji Alpe</item>
+        <item>Ljubno/Savinji Rore</item>
+        <item>Ločica pri Vranskem</item>
+        <item>Log.dolina PD</item>
+        <item>Log.dolina Sestre</item>
+        <item>Log.dolina slap</item>
+        <item>Loka pri Mengšu</item>
+        <item>Loke v Tuhinju</item>
+        <item>Lovreč</item>
+        <item>Lovrečica</item>
+        <item>Lucija TPC</item>
+        <item>Luče ob Savinji</item>
+        <item>Luče ob Savinji Stoglej</item>
+        <item>Lukovica pri Domžalah</item>
+        <item>Lukovica trgovina</item>
+        <item>Markovo Kavran</item>
+        <item>Mekinje</item>
+        <item>Meliše K</item>
+        <item>Mengeš Lek</item>
+        <item>Mengeš Lovec</item>
+        <item>Mengeš Pavovec</item>
+        <item>Mengeš Petrol</item>
+        <item>Mini bar</item>
+        <item>Moravče</item>
+        <item>Moste  INCE</item>
+        <item>Moste GD</item>
+        <item>Moste Petrol</item>
+        <item>Motnik</item>
+        <item>Motnik Park</item>
+        <item>Motnik zg.</item>
+        <item>Mozirje</item>
+        <item>Mozirje Celinšek</item>
+        <item>Nadlog</item>
+        <item>Nasovče</item>
+        <item>Nazarje</item>
+        <item>Negrad</item>
+        <item>Negrad Osovnik</item>
+        <item>Negrod</item>
+        <item>Nizka</item>
+        <item>Novigrad</item>
+        <item>Nožice</item>
+        <item>Okonina</item>
+        <item>OŠ Dob</item>
+        <item>OŠ Venclja Perka</item>
+        <item>Peče</item>
+        <item>Peče K</item>
+        <item>Perovo Coprnica</item>
+        <item>Petelinjek/Blagovici</item>
+        <item>Ples</item>
+        <item>Plovanija MP</item>
+        <item>Podgorica GD</item>
+        <item>Podgorje vas</item>
+        <item>Podgorje/Kamniku</item>
+        <item>Podgorje/Kamniku Slavka</item>
+        <item>Podhruška</item>
+        <item>Podmilj</item>
+        <item>Podrečje</item>
+        <item>Podrečje gostilna</item>
+        <item>Podrečje most</item>
+        <item>Poreč</item>
+        <item>Portorož</item>
+        <item>Potok</item>
+        <item>Potok/Tuhinju</item>
+        <item>Prelog</item>
+        <item>Prelog Magan</item>
+        <item>Preserje Gaj</item>
+        <item>Preserje pri Radomljah</item>
+        <item>Prevoje</item>
+        <item>Pri Amru</item>
+        <item>Pri Barbi</item>
+        <item>Pri Barbi Pavelnu</item>
+        <item>Pri Klusu</item>
+        <item>Pšata Janežič</item>
+        <item>Pšata most</item>
+        <item>Pšata mrliška vežica</item>
+        <item>Pusto Polje</item>
+        <item>Radmirje</item>
+        <item>Radmirje K</item>
+        <item>Radmirje PTT</item>
+        <item>Radomlje</item>
+        <item>Radomlje cerkev</item>
+        <item>Radomlje Opekarniška</item>
+        <item>Radomlje plinska</item>
+        <item>Radomlje Pošta</item>
+        <item>Raduha</item>
+        <item>Raduha Proše</item>
+        <item>Raduha Rogački most</item>
+        <item>Rafolče</item>
+        <item>Rečica/Savinji</item>
+        <item>Rečica/Savinji K</item>
+        <item>Remiza</item>
+        <item>Robanov kot Rogovilec</item>
+        <item>Rodica</item>
+        <item>Rodica Cerkev</item>
+        <item>Rodica OŠ</item>
+        <item>Rova Pirc</item>
+        <item>Rova Rodex</item>
+        <item>Rova/Radomljah</item>
+        <item>Rovinj</item>
+        <item>Rovinjsko selo</item>
+        <item>Rudnik K</item>
+        <item>Sečovlje MP</item>
+        <item>Sela</item>
+        <item>Selo pri Moravčah</item>
+        <item>Smrečje v Črni</item>
+        <item>Snovik</item>
+        <item>Solčava</item>
+        <item>Solčava Lašekar</item>
+        <item>Solčava Oprešnik</item>
+        <item>Sosiči</item>
+        <item>Soteska/Kamniku</item>
+        <item>Sp.Brnik</item>
+        <item>Sp.Kraše</item>
+        <item>Sp.Loke/Blagovici</item>
+        <item>Sp.Rečica/Savinji</item>
+        <item>Sp.Tuštanj</item>
+        <item>Sr.vas pri Kamniku</item>
+        <item>Srednja Vas</item>
+        <item>Stadion Mekinje</item>
+        <item>Stahovica</item>
+        <item>Stebljevk</item>
+        <item>Stegne</item>
+        <item>Stranje</item>
+        <item>Stranje Koritnik</item>
+        <item>Stranje Š</item>
+        <item>Stranje Šlebir</item>
+        <item>Strunjan</item>
+        <item>Sveta Trojica</item>
+        <item>Šentjanž/Ljubnem</item>
+        <item>Šentožbolt</item>
+        <item>Šentvid pri Lukovici</item>
+        <item>Škrjančevo</item>
+        <item>Šmarca K</item>
+        <item>Šmarca Kik</item>
+        <item>Šmarca vas</item>
+        <item>Šmartno ob Dreti</item>
+        <item>Šmartno šola</item>
+        <item>Šmartno v Tuhinju</item>
+        <item>Šmiklavž/G.Gradu</item>
+        <item>Šola Brdo</item>
+        <item>Šola Dol</item>
+        <item>Šola Domžale</item>
+        <item>Šola Dragomelj</item>
+        <item>Šola F. Albrehta</item>
+        <item>Šola Jarše</item>
+        <item>Šola Marije Vere</item>
+        <item>Šola Nevlje</item>
+        <item>Šola Rodica</item>
+        <item>Šola Roje</item>
+        <item>Šola Šmartno</item>
+        <item>Šola Toma Brejca</item>
+        <item>Šola Trzin</item>
+        <item>Špitalič/Motniku</item>
+        <item>Študa polje</item>
+        <item>Študa trgovina</item>
+        <item>Študa vas 1</item>
+        <item>Študa vas 2</item>
+        <item>Terme Snovik</item>
+        <item>Tirosek</item>
+        <item>Topole/Mengšu</item>
+        <item>Trgoavto Središka</item>
+        <item>Trnjava</item>
+        <item>Trojane</item>
+        <item>Trzin-DSO</item>
+        <item>Trzin GD</item>
+        <item>Trzin IC 1 Peske</item>
+        <item>Trzin IC 2 Špruha</item>
+        <item>Trzin IC 3 Motnica</item>
+        <item>Trzin ind.cona</item>
+        <item>Trzin Jemčeva 53</item>
+        <item>Trzin križišče</item>
+        <item>Trzin Mlake</item>
+        <item>Trzin vas</item>
+        <item>Tunjice GD</item>
+        <item>Tunjice trg.</item>
+        <item>Turnše</item>
+        <item>Turnše HŠ 25</item>
+        <item>Umag</item>
+        <item>Varpolje</item>
+        <item>Varvari</item>
+        <item>Veselka</item>
+        <item>Videm/Ljubljani</item>
+        <item>Vir Cerkev</item>
+        <item>Vir/Domžalah</item>
+        <item>Volčji Potok</item>
+        <item>Volčji Potok Arboretum</item>
+        <item>Volčji Potok Šraj</item>
+        <item>Volog</item>
+        <item>Vopovlje</item>
+        <item>Vransko</item>
+        <item>Vrh Kozjaka/Črnem Vrhu</item>
+        <item>Vrhovlje na Rafolčah K</item>
+        <item>Vrhpolje/Kamniku</item>
+        <item>Vrhpolje/Kamniku most</item>
+        <item>Vrhpolje/Moravčah</item>
+        <item>Zaboršt</item>
+        <item>Zalog</item>
+        <item>Zalog pod Trojico</item>
+        <item>Zduša</item>
+        <item>Zg.Kraše</item>
+        <item>Zg.Loke</item>
+        <item>Zg.Tuhinj Mlinar</item>
+        <item>Žaga/Moravčah</item>
+        <item>Žbandaj</item>
+        <item>Žeje</item>
+        <item>Želodnik</item>
+        <item>Žiče/Radomljah</item>
+        <item>Žičnica V.planina</item>
+    </string-array>
 </resources>
