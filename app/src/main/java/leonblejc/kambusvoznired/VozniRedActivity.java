@@ -24,15 +24,15 @@ public class VozniRedActivity extends AppCompatActivity {
         Intent intent                = getIntent();
 
         //Get input values from intent
-        String vstopnaPostajaString = intent.getStringExtra("vstopnaPostaja");
+        String vstopnaPostajaString  = intent.getStringExtra("vstopnaPostaja");
         String izstopnaPostajaString = intent.getStringExtra("izstopnaPostaja");
-        String d = intent.getStringExtra("datum");
+        String datumString           = intent.getStringExtra("datum");
 
         //Initialize pre-table views
-        TextView vstopnaPostaja = findViewById(R.id.VstopnaPostajaVR);
+        TextView vstopnaPostaja  = findViewById(R.id.VstopnaPostajaVR);
         TextView izstopnaPostaja = findViewById(R.id.IzstopnaPostajaVR);
-        TextView datum = findViewById(R.id.DatumVR);
-        TextView cena = findViewById(R.id.CenaVR);
+        TextView datum           = findViewById(R.id.DatumVR);
+        TextView cena            = findViewById(R.id.CenaVR);
 
         //Set text positioning for pre-table views
         vstopnaPostaja.setGravity(Gravity.CENTER);
@@ -43,14 +43,14 @@ public class VozniRedActivity extends AppCompatActivity {
         //Set pre-table output values
         vstopnaPostaja.setText(vstopnaPostajaString);
         izstopnaPostaja.setText(izstopnaPostajaString);
-        datum.setText(d);
+        datum.setText(datumString);
 
         //Make new fetcher to obtain buses
         Fetcher fetcher      = new Fetcher();
         ArrayList<Bus> buses = fetcher.fetchBuses(
                 vstopnaPostajaString,
                 izstopnaPostajaString,
-                d,
+                datumString,
             Calendar.getInstance().getTime()
         );
 
@@ -79,8 +79,8 @@ public class VozniRedActivity extends AppCompatActivity {
         TextView odhodView;
         TextView prihodView;
         LinearLayout currRow;
-        Context appContext = this.getApplicationContext();
         View viewDivider;
+        Context appContext = this.getApplicationContext();
 
         for (Bus currBus : buses) {
 
@@ -138,6 +138,10 @@ public class VozniRedActivity extends AppCompatActivity {
             arrowView.setGravity(Gravity.CENTER);
             odhodView.setGravity(Gravity.CENTER);
             prihodView.setGravity(Gravity.CENTER);
+
+            arrowView.setTextColor(Color.BLACK);
+            odhodView.setTextColor(Color.BLACK);
+            prihodView.setTextColor(Color.BLACK);
 
             //Add views to row
             currRow.addView(odhodView);

@@ -29,6 +29,7 @@ class Fetcher {
 
         //Make connection to bus timetable website
         try {
+
             //Create url of requested bus timetable
             String fetchUrl = "https://www.kam-bus.si/index.php?page=ajax_pot&in_pot="
                     + vstopnaPostaja.trim().replace(' ', '+') + "&out_pot="

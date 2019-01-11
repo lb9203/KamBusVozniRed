@@ -2,7 +2,7 @@ package leonblejc.kambusvoznired;
 
 //Class for storing information of a single bus
 
-public class Bus {
+class Bus {
     private String odhod, prihod, ime, cena;
 
     Bus(String ime, String cena, String odhod, String prihod) {
@@ -24,7 +24,7 @@ public class Bus {
         return prihod;
     }
 
-    public String getIme() {
+    String getIme() {
         return ime;
     }
 }

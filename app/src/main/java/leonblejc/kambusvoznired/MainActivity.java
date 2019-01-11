@@ -45,18 +45,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Initialize variables
-        stationsArray = getResources().getStringArray(R.array.postajeArray);
-        vstopnaPostaja = findViewById(R.id.VstopnaPostajaInner);
+        stationsArray   = getResources().getStringArray(R.array.postajeArray);
+        vstopnaPostaja  = findViewById(R.id.VstopnaPostajaInner);
         izstopnaPostaja = findViewById(R.id.IzstopnaPostajaInner);
-        sendButton = findViewById(R.id.button);
-        datum = findViewById(R.id.DatumInner);
+        sendButton      = findViewById(R.id.button);
+        datum           = findViewById(R.id.DatumInner);
         progress        = new ProgressDialog(this);
-        stringAdapter = new ArrayAdapter<>
+        stringAdapter   = new ArrayAdapter<>
                 (this,android.R.layout.simple_list_item_1, stationsArray);
 
         //Set View properties
         vstopnaPostaja.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         izstopnaPostaja.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
         sendButton.setEnabled(false);
         vstopnaPostaja.addTextChangedListener(new TextWatcher() {
             @Override
@@ -66,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 List<String> PostajeList = Arrays.asList(stationsArray);
-                if (PostajeList.contains(s.toString()) && PostajeList.contains(izstopnaPostaja.getText().toString())) {
+                if (PostajeList.contains(s.toString()) &&
+                        PostajeList.contains(izstopnaPostaja.getText().toString())) {
                     sendButton.setEnabled(true);
                 } else {
                     sendButton.setEnabled(false);
@@ -86,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 List<String> PostajeList = Arrays.asList(stationsArray);
-                if (PostajeList.contains(s.toString()) && PostajeList.contains(vstopnaPostaja.getText().toString())) {
+                if (PostajeList.contains(s.toString()) &&
+                        PostajeList.contains(vstopnaPostaja.getText().toString())) {
                     sendButton.setEnabled(true);
                 } else {
                     sendButton.setEnabled(false);
@@ -124,7 +127,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     izstopnaPostaja.clearFocus();
-                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    InputMethodManager imm =
+                            (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(izstopnaPostaja.getWindowToken(), 0);
                     return true;
                 }
@@ -145,12 +149,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 izstopnaPostaja.clearFocus();
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm =
+                        (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(izstopnaPostaja.getWindowToken(), 0);
             }
         });
 
         //Clear if focused
+        /*
         vstopnaPostaja.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -168,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        */
 
         //Date formatter dd.MM.yyyy
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
