@@ -366,5 +366,5 @@
         <item>Žičnica V.planina</item>
     </string-array>
     <string name="action_settings">Nastavitve</string>
-    <string name="keepLastStations">Pomni nazadnje vpisane postaje</string>
+    <string name="keepLastStations">Pomni zadnje vpisane postaje</string>
 </resources>

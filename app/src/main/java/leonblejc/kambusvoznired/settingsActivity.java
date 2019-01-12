@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 
 public class settingsActivity extends AppCompatActivity {
 

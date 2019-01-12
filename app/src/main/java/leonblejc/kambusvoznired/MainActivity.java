@@ -11,9 +11,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,13 +20,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.TextView;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
     AutoCompleteTextView vstopnaPostaja;
     AutoCompleteTextView izstopnaPostaja;
     ProgressDialog progress;
-    Button sendButton;
 
 
     //Declare variables
@@ -81,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         String[] stationsArray = getResources().getStringArray(R.array.postajeArray);
         vstopnaPostaja  = findViewById(R.id.VstopnaPostajaInner);
         izstopnaPostaja = findViewById(R.id.IzstopnaPostajaInner);
-        sendButton      = findViewById(R.id.button);
         datum           = findViewById(R.id.DatumInner);
         progress        = new ProgressDialog(this);
         stringAdapter   = new ArrayAdapter<>
@@ -120,33 +111,6 @@ public class MainActivity extends AppCompatActivity {
             vstopnaPostaja.setText(prefs.getString("lastVstopnaPostaja",""));
             izstopnaPostaja.setText(prefs.getString("lastIzstopnaPostaja",""));
         }
-
-        //Go to izstopnaPostaja when vstopnaPostaja input is done
-        vstopnaPostaja.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_NEXT) {
-                    izstopnaPostaja.requestFocus();
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        //Close keyboard when izstopnaPostaja input is done
-        izstopnaPostaja.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    izstopnaPostaja.clearFocus();
-                    InputMethodManager imm =
-                            (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(izstopnaPostaja.getWindowToken(), 0);
-                    return true;
-                }
-                return false;
-            }
-        });
 
         //Go to izstopnaPostaja when autoComplete value is selected on vstopnaPostaja
         vstopnaPostaja.setOnItemClickListener(new AdapterView.OnItemClickListener() {
