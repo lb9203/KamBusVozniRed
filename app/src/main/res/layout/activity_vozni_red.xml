@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:padding="5dp"
         android:textColor="@android:color/black"
         android:textSize="22sp"
         android:textStyle="bold" />
@@ -24,28 +25,31 @@
 
         <TextView
             android:id="@+id/VstopnaPostajaVR"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="5dp"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/CenaVR"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="1.25"
+            android:padding="5dp"
             android:textColor="@android:color/black"
             android:textSize="22sp" />
 
         <TextView
             android:id="@+id/IzstopnaPostajaVR"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="5dp"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             android:textStyle="bold" />

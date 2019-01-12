@@ -3,6 +3,8 @@ package leonblejc.kambusvoznired;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -34,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progress;
     Button sendButton;
 
+
     //Declare variables
     private String dateString;
     private String[] stationsArray;
     ArrayAdapter<String> stringAdapter;
+    SharedPreferences prefs;
+    SharedPreferences.Editor prefEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +58,16 @@ public class MainActivity extends AppCompatActivity {
         progress        = new ProgressDialog(this);
         stringAdapter   = new ArrayAdapter<>
                 (this,android.R.layout.simple_list_item_1, stationsArray);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefEditor = prefs.edit();
 
         //Set View properties
         vstopnaPostaja.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         izstopnaPostaja.setImeOptions(EditorInfo.IME_ACTION_DONE);
-
         sendButton.setEnabled(false);
+
+
+
         vstopnaPostaja.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
