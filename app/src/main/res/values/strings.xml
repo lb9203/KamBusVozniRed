@@ -365,4 +365,6 @@
         <item>Žiče/Radomljah</item>
         <item>Žičnica V.planina</item>
     </string-array>
+    <string name="action_settings">Nastavitve</string>
+    <string name="keepLastStations">Pomni nazadnje vpisane postaje</string>
 </resources>

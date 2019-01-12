@@ -7,11 +7,16 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -29,6 +34,29 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu); //your file name
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent settingsIntent = new Intent(this, settingsActivity.class);
+                startActivity(settingsIntent);
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
     //Declare views
     CalendarView datum;
     AutoCompleteTextView vstopnaPostaja;
@@ -39,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
     //Declare variables
     private String dateString;
-    private String[] stationsArray;
     ArrayAdapter<String> stringAdapter;
     SharedPreferences prefs;
     SharedPreferences.Editor prefEditor;
+    boolean keepLastStations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Initialize variables
-        stationsArray   = getResources().getStringArray(R.array.postajeArray);
+        String[] stationsArray = getResources().getStringArray(R.array.postajeArray);
         vstopnaPostaja  = findViewById(R.id.VstopnaPostajaInner);
         izstopnaPostaja = findViewById(R.id.IzstopnaPostajaInner);
         sendButton      = findViewById(R.id.button);
@@ -61,55 +89,12 @@ public class MainActivity extends AppCompatActivity {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefEditor = prefs.edit();
 
-        //Set View properties
-        vstopnaPostaja.setImeOptions(EditorInfo.IME_ACTION_NEXT);
-        izstopnaPostaja.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        sendButton.setEnabled(false);
+        //Create toolbar
+        Toolbar myToolbar = findViewById(R.id.my_toolbar_main_activity);
+        setSupportActionBar(myToolbar);
+        ActionBar ab = getSupportActionBar();
+        assert ab != null;
 
-
-
-        vstopnaPostaja.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                List<String> PostajeList = Arrays.asList(stationsArray);
-                if (PostajeList.contains(s.toString()) &&
-                        PostajeList.contains(izstopnaPostaja.getText().toString())) {
-                    sendButton.setEnabled(true);
-                } else {
-                    sendButton.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        izstopnaPostaja.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                List<String> PostajeList = Arrays.asList(stationsArray);
-                if (PostajeList.contains(s.toString()) &&
-                        PostajeList.contains(vstopnaPostaja.getText().toString())) {
-                    sendButton.setEnabled(true);
-                } else {
-                    sendButton.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         vstopnaPostaja.setAdapter(stringAdapter);
         izstopnaPostaja.setAdapter(stringAdapter);
         vstopnaPostaja.setThreshold(2);
@@ -117,6 +102,24 @@ public class MainActivity extends AppCompatActivity {
         progress.setTitle(getResources().getString(R.string.Nalagam));
         progress.setMessage(getResources().getString(R.string.Cakaj));
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+
+        //Set View properties
+        vstopnaPostaja.setImeOptions(EditorInfo.IME_ACTION_NEXT);
+        izstopnaPostaja.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        //Set default settings
+        if(!prefs.contains("keepLastStations")){
+            prefEditor.putBoolean("keepLastStations",true);
+            prefEditor.apply();
+        }
+
+        //Get settings
+        keepLastStations = prefs.getBoolean("keepLastStations",true);
+
+        if(keepLastStations){
+            vstopnaPostaja.setText(prefs.getString("lastVstopnaPostaja",""));
+            izstopnaPostaja.setText(prefs.getString("lastIzstopnaPostaja",""));
+        }
 
         //Go to izstopnaPostaja when vstopnaPostaja input is done
         vstopnaPostaja.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -165,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Clear if focused
-        /*
+
         vstopnaPostaja.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -183,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        */
+
 
         //Date formatter dd.MM.yyyy
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
@@ -215,6 +218,13 @@ public class MainActivity extends AppCompatActivity {
         String VstopnaPostajaString  = vstopnaPostaja.getText().toString();
         String IzstopnaPostajaString = izstopnaPostaja.getText().toString();
 
+        //Remember last stations
+        if(keepLastStations){
+            prefEditor.putString("lastVstopnaPostaja",VstopnaPostajaString);
+            prefEditor.putString("lastIzstopnaPostaja",IzstopnaPostajaString);
+            prefEditor.apply();
+        }
+
         //Add input values to intent for use in next activity
         PrikaziVozniRed.putExtra("vstopnaPostaja", VstopnaPostajaString);
         PrikaziVozniRed.putExtra("izstopnaPostaja", IzstopnaPostajaString);
@@ -229,9 +239,6 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         //Reset inputs when VozniRedActivity closes
         if (requestCode == 1000) {
-            //vstopnaPostaja.setText("");
-            //izstopnaPostaja.setText("");
-            //datum.setDate(System.currentTimeMillis(),false,true);
             progress.dismiss();
         }
     }

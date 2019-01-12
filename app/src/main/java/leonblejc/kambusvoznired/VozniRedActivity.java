@@ -3,8 +3,10 @@ package leonblejc.kambusvoznired;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +35,12 @@ public class VozniRedActivity extends AppCompatActivity {
         TextView izstopnaPostaja = findViewById(R.id.IzstopnaPostajaVR);
         TextView datum           = findViewById(R.id.DatumVR);
         TextView cena            = findViewById(R.id.CenaVR);
+
+        Toolbar myToolbar = findViewById(R.id.my_toolbar_vozni_red);
+        setSupportActionBar(myToolbar);
+        ActionBar ab = getSupportActionBar();
+        assert ab != null;
+        ab.setDisplayHomeAsUpEnabled(true);
 
         //Set text positioning for pre-table views
         vstopnaPostaja.setGravity(Gravity.CENTER);
